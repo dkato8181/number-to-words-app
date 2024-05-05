@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Converter</title>
+</head>
+<body>
+	<div>
+		<input type="number" id="number">
+		<button type="button" id="convert">Convert</button>
+		<p id="words"></p>
+	</div>
+	<script>
+		const buttonConvert = document.getElementById("convert");
+		const pWords = document.getElementById("words");
+		const inputNumber = document.getElementById("number");
+
+		buttonConvert.addEventListener("click", convertNumbersToWords);
+
+		function convertNumbersToWords(){
+			let number = parseInt(inputNumber.value);
+			let numberString = String(number);
+			let text = '';
+			let numLength  = numberString.length;
+			let ones = {
+				0: 'zero',
+				1: 'one',
+				2: 'two',
+				3: 'three',
+				4: 'four',
+				5: 'five',
+				6: 'six',
+				7: 'seven',
+				8: 'eigth',
+				9: 'nine',
+				10: 'ten',
+				11: 'eleven',
+				12: 'twelve',
+				13: 'thirteen',
+				14: 'forteen',
+				15: 'fifteen',
+				16: 'sixteen',
+				17: 'seventeen',
+				18: 'eigteen',
+				19: 'ninteen',
+				20: 'twenty'
+			};
+			
+			if(number<=20) {
+				text = ones[number];
+			}
+			
+			pWords.innerHTML = text;
+		}
+	</script>  
+</body>
+</html>
