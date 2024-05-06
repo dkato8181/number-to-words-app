@@ -24,7 +24,7 @@
 			let text = '';
 			let numLength  = numberString.length;
 			let ones = {
-				0: 'zero',
+				0: '',
 				1: 'one',
 				2: 'two',
 				3: 'three',
@@ -43,15 +43,32 @@
 				16: 'sixteen',
 				17: 'seventeen',
 				18: 'eigteen',
-				19: 'ninteen',
-				20: 'twenty'
+				19: 'ninteen'
 			};
-			
-			if(number<=20) {
-				text = ones[number];
+			let tens = {
+				2: 'twenty',
+				3: 'thirty',
+				4: 'forty',
+				5: 'fifty',
+				6: 'sixty',
+				7: 'seventy',
+				8: 'eighty',
+				9: 'ninety',
 			}
 			
-			pWords.innerHTML = text;
+			if(number==0) {
+				text = 'zero';
+			}
+			else if(number<=20) {
+				text = ones[number];
+			}
+			else{
+				let oneth = number%10;
+				let tenth = Math.floor(number/10);
+				text = `${tens[tenth]} ${ones[oneth]}`;
+			}
+			
+			pWords.innerHTML = text.trim();
 		}
 	</script>  
 </body>
