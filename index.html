@@ -59,7 +59,10 @@
 
 			let text = '';
 
-			if(number<MIN || number>MAX){
+			if (isNaN(number)) {
+				text = 'value is not a number';
+			}
+			else if(number<MIN || number>MAX){
 				text = 'number not yet supported';
 			}
 			else if(number==0) {
