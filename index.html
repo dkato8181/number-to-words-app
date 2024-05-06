@@ -19,11 +19,10 @@
 		buttonConvert.addEventListener("click", convertNumbersToWords);
 
 		function convertNumbersToWords(){
-			let number = parseInt(inputNumber.value);
-			let numberString = String(number);
-			let text = '';
-			let numLength  = numberString.length;
-			let ones = {
+			const number = parseInt(inputNumber.value);
+			const numberString = String(number);
+			const numLength  = numberString.length;
+			const ones = {
 				0: '',
 				1: 'one',
 				2: 'two',
@@ -45,7 +44,7 @@
 				18: 'eigteen',
 				19: 'ninteen'
 			};
-			let tens = {
+			const tens = {
 				2: 'twenty',
 				3: 'thirty',
 				4: 'forty',
@@ -55,6 +54,8 @@
 				8: 'eighty',
 				9: 'ninety',
 			}
+
+			let text = '';
 
 			if(number<0||number>99){
 				text = 'number not yet supported';
