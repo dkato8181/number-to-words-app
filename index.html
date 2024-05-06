@@ -55,8 +55,11 @@
 				8: 'eighty',
 				9: 'ninety',
 			}
-			
-			if(number==0) {
+
+			if(number<0||number>99){
+				text = 'number not yet supported';
+			}
+			else if(number==0) {
 				text = 'zero';
 			}
 			else if(number<=20) {
