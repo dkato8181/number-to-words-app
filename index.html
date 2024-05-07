@@ -13,20 +13,63 @@
 	</div>
 	<script>
 		const MIN = 0;
-		const MAX = 99;
+		const MAX = 999;
 		const buttonConvert = document.getElementById("convert");
 		const pWords = document.getElementById("words");
 		const inputNumber = document.getElementById("number");
 
 		buttonConvert.addEventListener("click", convertListener);
 
-		function convertListener(e){
-			pWords.innerHTML = getWords(inputNumber.value);
+		function convertListener(e) {
+			const number = parseInt(inputNumber.value);
+			let words;
+
+			if (isNaN(number)) {
+				words = 'value is not a number';
+			}
+			else if (number < MIN || number > MAX) {
+				words = 'number not yet supported';
+			}
+			else{
+				words = convert(number);
+			}
+
+			pWords.innerHTML = words;
 		}
 
-		function getWords(val){
-			const number = parseInt(val);
-			const numLength  = val.length;
+
+		function convert(num) {
+			if (num == 0) {
+				return 'zero';
+			}
+			let end = num.toString().length;
+			let start;
+			let words = '';
+			while (end > 0) {
+				let hundredth = '';
+				let remainder = '';
+				let a = Math.floor(num / 100);
+				let b = num % 100;
+				start = end - 3;
+				if (start < 0) {
+					start = 0;
+				}
+				let slice = num.toString().slice(start, end);
+				if (a > 0) {
+					hundredth = getWords(a) + ' hundred';
+				}
+				remainder = getWords(b);
+				words = `${hundredth} ${remainder}`;
+				if (start == 0) {
+					break;
+				}
+				end = start;
+			}
+
+			return words.trim();
+		}
+
+		function getWords(number){
 			const ones = {
 				0: '',
 				1: 'one',
@@ -61,6 +104,7 @@
 			}
 
 			let text = '';
+			
 			if(number<20) {
 				text = ones[number];
 			}
