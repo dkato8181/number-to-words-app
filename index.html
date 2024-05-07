@@ -18,12 +18,15 @@
 		const pWords = document.getElementById("words");
 		const inputNumber = document.getElementById("number");
 
-		buttonConvert.addEventListener("click", convertNumbersToWords);
+		buttonConvert.addEventListener("click", convertListener);
 
-		function convertNumbersToWords(){
-			const number = parseInt(inputNumber.value);
-			const numberString = String(number);
-			const numLength  = numberString.length;
+		function convertListener(e){
+			pWords.innerHTML = getWords(inputNumber.value);
+		}
+
+		function getWords(val){
+			const number = parseInt(val);
+			const numLength  = val.length;
 			const ones = {
 				0: '',
 				1: 'one',
@@ -77,7 +80,7 @@
 				text = `${tens[tenth]} ${ones[oneth]}`;
 			}
 			
-			pWords.innerHTML = text.trim();
+			return text.trim();
 		}
 	</script>  
 </body>
