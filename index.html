@@ -61,17 +61,7 @@
 			}
 
 			let text = '';
-
-			if (isNaN(number)) {
-				text = 'value is not a number';
-			}
-			else if(number<MIN || number>MAX){
-				text = 'number not yet supported';
-			}
-			else if(number==0) {
-				text = 'zero';
-			}
-			else if(number<=20) {
+			if(number<20) {
 				text = ones[number];
 			}
 			else{
