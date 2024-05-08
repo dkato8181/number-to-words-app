@@ -1,3 +1,4 @@
+const zero = 'zero';
 const ones = {
     0: '',
     1: 'one',
@@ -40,7 +41,7 @@ const thousands = {
 
 function convert(num) {
     if (num == 0) {
-        return 'zero';
+        return zero;
     }
 
     let end = num.toString().length;
