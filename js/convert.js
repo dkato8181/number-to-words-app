@@ -104,3 +104,5 @@ function getWords(number) {
 
     return text.trim();
 }
+
+export { convert }

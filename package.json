@@ -1,4 +1,12 @@
 {
+  "name": "convert-js",
+	"description": "Number to words converter.",
+	"version": "1.0.0",
+	"license": "MIT",
+	"type": "module",
+	"scripts": {
+		"test:unit": "node --experimental-vm-modules node_modules/.bin/jest"
+	},
   "devDependencies": {
     "jest": "^29.7.0"
   }
