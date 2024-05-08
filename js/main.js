@@ -1,3 +1,6 @@
+const MIN = 0;
+const MAX = 999_999_999_999_999;
+
 const buttonConvert = document.getElementById("convert");
 const pWords = document.getElementById("words");
 const inputNumber = document.getElementById("number");

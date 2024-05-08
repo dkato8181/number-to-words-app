@@ -37,8 +37,6 @@ const thousands = {
     3: 'billion',
     4: 'trillion',
 }
-const MIN = 0;
-const MAX = 999_999_999_999_999;
 
 function convert(num) {
     if (num == 0) {
