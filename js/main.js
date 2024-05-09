@@ -10,6 +10,9 @@ buttonConvert.addEventListener("click", convertListener);
 function convertListener(e) {
     const number = parseInt(inputNumber.value);
     let words;
+    let isValid = false;
+
+    pWords.classList.remove()
 
     if (isNaN(number)) {
         words = 'value is not a number';
@@ -18,7 +21,12 @@ function convertListener(e) {
         words = 'number not yet supported';
     }
     else {
+        isValid = true;
         words = convert(number);
+    }
+
+    if (!isValid) {
+        pWords.classList.add('text-invalid');
     }
 
     pWords.innerHTML = words;
